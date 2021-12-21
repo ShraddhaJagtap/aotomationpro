@@ -1,0 +1,34 @@
+package com.xlsheet1;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+
+import DriversBasic.SetPath;
+
+public class ForLoopPrintValue {
+	
+	public void fun2() throws EncryptedDocumentException, IOException
+	{
+		File file2=new File(SetPath.xlSheetPath);
+		for(int i=0;i<=5;i++)
+		{
+			for(int j=0;j<=2;j++)
+			{
+				String s4=WorkbookFactory.create(file2).getSheet("Sheet2").getRow(i).getCell(j).getStringCellValue();
+				System.out.println(" "+s4);	
+			}	
+			System.out.println();
+		}	
+	}
+
+	public static void main(String[] args) throws EncryptedDocumentException, IOException 
+	{
+		ForLoopPrintValue v=new ForLoopPrintValue();
+		v.fun2();
+	}
+}
+
+
